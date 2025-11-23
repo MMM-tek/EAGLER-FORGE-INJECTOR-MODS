@@ -42,7 +42,7 @@
         var recipe = ModAPI.util.makeArray(ObjectClass, recipeContents.concat(recipeInternal));
 
         // Define the output item as hack_item
-        var resultItem = ModAPI.reflect.getClassById("net.minecraft.item.ItemStack").constructors[1](ModAPI.blocks["hack_item"].getRef(), 1);
+        var resultItem = ModAPI.reflect.getClassById("net.minecraft.item.ItemStack").constructors[1](ModAPI.items["hack_item"].getRef(), 1);
 
 
 
