@@ -1,8 +1,7 @@
 (function AddDiamondRecipe() {
-    ModAPI.meta.title("DiamondCraftingRecipeMod");
-    ModAPI.meta.description("Adds a crafting recipe to create diamond blocks from dirt.");
-
-    async function addDiamondRecipe() {
+    ModAPI.meta.title("CustomRecipeMod");
+    
+    async function addCustomItemRecipe() {
         await new Promise((res, rej) => {
             if (ModAPI.blocks) {
                 res()
@@ -41,8 +40,8 @@
         var recipeContents = recipePattern.map(row => ModAPI.util.str(row));
         var recipe = ModAPI.util.makeArray(ObjectClass, recipeContents.concat(recipeInternal));
 
-        // Define the output item as diamond_block
-        var resultItem = ModAPI.reflect.getClassById("net.minecraft.item.ItemStack").constructors[1](ModAPI.blocks["diamond_block"].getRef(), 1);
+        // Define the output item as custom_item
+        var resultItem = ModAPI.reflect.getClassById("net.minecraft.item.ItemStack").constructors[1](ModAPI.blocks["custom_item"].getRef(), 1);
 
 
 
@@ -51,7 +50,7 @@
         ModAPI.hooks.methods.nmic_CraftingManager_addRecipe(craftingManager, resultItem, recipe);
     }
 
-    ModAPI.dedicatedServer.appendCode(addDiamondRecipe);
+    ModAPI.dedicatedServer.appendCode(addCustomItemRecipe);
 
-    addDiamondRecipe();
+    addCustomItemRecipe();
 })();
