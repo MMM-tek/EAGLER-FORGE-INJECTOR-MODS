@@ -19,7 +19,7 @@
         var recipeLegend = {
             "C": {
                 type: "item",
-                id: "custom_item" // Using dirt blocks
+                id: "hack" // Using dirt blocks
             }
         };
 
