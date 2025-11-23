@@ -1,8 +1,8 @@
-(function AddDiamondRecipe() {
-    ModAPI.meta.title("DiamondCraftingRecipeMod");
-    ModAPI.meta.description("Adds a crafting recipe to create diamond blocks from dirt.");
+(function AddBedrockRecipe() {
+    ModAPI.meta.title("BedrockCraftingRecipeMod");
+    ModAPI.meta.description("Adds a crafting recipe to create Bedrock blocks from dirt.");
 
-    async function addDiamondRecipe() {
+    async function addBedrockRecipe() {
         await new Promise((res, rej) => {
             if (ModAPI.blocks) {
                 res()
@@ -17,17 +17,17 @@
 
         // Define the recipe legend to map characters to items
         var recipeLegend = {
-            "D": {
-                type: "block",
-                id: "dirt" // Using dirt blocks
+            "C": {
+                type: "item",
+                id: "custom_item" // Using dirt blocks
             }
         };
 
         // Define the crafting grid pattern for the recipe
         var recipePattern = [
-            "DDD",
-            "DDD",
-            "DDD"
+            "CCC",
+            "CCC",
+            "CCC"
         ];
 
         // Convert the recipe pattern and legend into the required format
@@ -41,8 +41,8 @@
         var recipeContents = recipePattern.map(row => ModAPI.util.str(row));
         var recipe = ModAPI.util.makeArray(ObjectClass, recipeContents.concat(recipeInternal));
 
-        // Define the output item as diamond_block
-        var resultItem = ModAPI.reflect.getClassById("net.minecraft.item.ItemStack").constructors[1](ModAPI.blocks["diamond_block"].getRef(), 1);
+        // Define the output item as Bedrock
+        var resultItem = ModAPI.reflect.getClassById("net.minecraft.item.ItemStack").constructors[1](ModAPI.blocks["Bedrock"].getRef(), 1);
 
 
 
@@ -51,7 +51,7 @@
         ModAPI.hooks.methods.nmic_CraftingManager_addRecipe(craftingManager, resultItem, recipe);
     }
 
-    ModAPI.dedicatedServer.appendCode(addDiamondRecipe);
+    ModAPI.dedicatedServer.appendCode(addBedrockRecipe);
 
-    addDiamondRecipe();
+    addBedrockRecipe();
 })();
