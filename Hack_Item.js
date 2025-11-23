@@ -1,9 +1,9 @@
-(function HackItemMod() {
+(function MMM-tekItemMod() {
     const itemTexture = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAKZJREFUOE9j/P//PxMDBIBoEP6HREOl4PLIciA2AyPIgMcM//7KgvWSDJjBBpx9/+YvJzc3Sbq12DhB6sEGsJ19/+YnmQawYhigzc7FcPXnN4KugbqAHWQAy9n3b34T4wJkw6EGYLqAoNVQBWS5ANlwZBfAvUCs/0EGkW0AzBKqGoCSDgh5A80F2KMRpAgfAKUT6kcjsfEPUycmKMQgy8AETkgUZWcAS3CPIf4oSPsAAAAASUVORK5CYII=";
 
-    ModAPI.meta.title("Hack Item Mod");
+    ModAPI.meta.title("MMM-tek Item Mod");
     ModAPI.meta.icon(itemTexture);
-    ModAPI.meta.description("For crafting bedrock etc...");
+    ModAPI.meta.description("More items");
     ModAPI.meta.credits("By MMM-tek");
 
     function HackItem() {
@@ -34,17 +34,17 @@
         // Internal registration function. This will be used to actually register the item on both the client and the server.
         function internal_reg() {
             // Construct an instance of the CustomItem, and set it's unlocalized name (translation id)
-            var hack_item = (new HackItem()).$setUnlocalizedName(
+            var custom_item = (new CustomItem()).$setUnlocalizedName(
                 ModAPI.util.str("hack_item")
             );
             //Register it using ModAPI.keygen() to get the item id.
-            itemClass.staticMethods.registerItem.method(ModAPI.keygen.item("hack_item"), ModAPI.util.str("hack_item"), hack_item);
+            itemClass.staticMethods.registerItem.method(ModAPI.keygen.item("hack_item"), ModAPI.util.str("hack_item"), custom_item);
 
             //Expose it to ModAPI
-            ModAPI.items["hack_item"] = hack_item;
+            ModAPI.items["hack_item"] = custom_item;
             
             //return the instance.
-            return hack_item;
+            return custom_item;
         }
 
         //if the item global exists (and it will on the client), register the item and return the registered instance.
@@ -64,9 +64,9 @@
 
     ModAPI.addEventListener("lib:asyncsink", async () => {
         ModAPI.addEventListener("lib:asyncsink:registeritems", (renderItem)=>{
-            renderItem.registerItem(hack_item, ModAPI.util.str("hack_item"));
+            renderItem.registerItem(custom_item, ModAPI.util.str("hack_item"));
         });
-        AsyncSink.L10N.set("item.hack_item.name", "Hack");
+        AsyncSink.L10N.set("item.custom_item.name", "Hack");
         AsyncSink.setFile("resourcepacks/AsyncSinkLib/assets/minecraft/models/item/hack_item.json", JSON.stringify(
             {
                 "parent": "builtin/generated",
