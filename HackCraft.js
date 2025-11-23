@@ -1,5 +1,5 @@
 (function AddHackItemRecipe() {
-    ModAPI.meta.title("CustomRecipeMod");
+    ModAPI.meta.title("HackRecipeMod");
     
     async function addHackItemRecipe() {
         await new Promise((res, rej) => {
