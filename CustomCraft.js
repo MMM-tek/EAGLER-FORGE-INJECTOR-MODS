@@ -1,4 +1,4 @@
-(function AddDiamondRecipe() {
+(function AddCustomItemRecipe() {
     ModAPI.meta.title("CustomRecipeMod");
     
     async function addCustomItemRecipe() {
