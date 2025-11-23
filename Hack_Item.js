@@ -57,7 +57,7 @@
     }
 
     // Run the function when the dedicated server loads.
-    ModAPI.dedicatedServer.appendCode(hackitem); 
+    ModAPI.dedicatedServer.appendCode(hackitem()); 
 
     // Run the function on the client
     var hack = hackitem();
