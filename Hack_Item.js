@@ -66,7 +66,7 @@
         ModAPI.addEventListener("lib:asyncsink:registeritems", (renderItem)=>{
             renderItem.registerItem(hack_item, ModAPI.util.str("hack_item"));
         });
-        AsyncSink.L10N.set("item.hack_item.name", "Cool Hack Item");
+        AsyncSink.L10N.set("item.hack_item.name", "Hack");
         AsyncSink.setFile("resourcepacks/AsyncSinkLib/assets/minecraft/models/item/hack_item.json", JSON.stringify(
             {
                 "parent": "builtin/generated",
