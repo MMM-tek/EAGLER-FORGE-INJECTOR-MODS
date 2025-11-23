@@ -14,7 +14,7 @@
             itemSuper(this); //Use super function to get block properties on this class.
             this.$setCreativeTab(creativeMiscTab); //Set the creative tab of the item to be the misc tab
         }
-        ModAPI.reflect.prototypeStack(itemClass, CustomItem); // ModAPI equivalent of `extends` in java
+        ModAPI.reflect.prototypeStack(itemClass, HackItem); // ModAPI equivalent of `extends` in java
         HackItem.prototype.$onItemRightClick = function ($itemstack, $world, $player) { //example of how to override a method
             //use ModAPI.util.wrap to create a proxy of the player and the world without $ prefixes on the properties and methods
             var player = ModAPI.util.wrap($player);
