@@ -34,7 +34,7 @@
         // Internal registration function. This will be used to actually register the item on both the client and the server.
         function internal_reg() {
             // Construct an instance of the CustomItem, and set it's unlocalized name (translation id)
-            var custom_item = (new CustomItem()).$setUnlocalizedName(
+            var custom_item = (new HackItem()).$setUnlocalizedName(
                 ModAPI.util.str("hack_item")
             );
             //Register it using ModAPI.keygen() to get the item id.
