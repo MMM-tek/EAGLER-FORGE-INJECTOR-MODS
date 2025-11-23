@@ -1,7 +1,7 @@
-(function AddCustomItemRecipe() {
+(function AddHackItemRecipe() {
     ModAPI.meta.title("CustomRecipeMod");
     
-    async function addCustomItemRecipe() {
+    async function addHackItemRecipe() {
         await new Promise((res, rej) => {
             if (ModAPI.blocks) {
                 res()
@@ -41,7 +41,7 @@
         var recipe = ModAPI.util.makeArray(ObjectClass, recipeContents.concat(recipeInternal));
 
         // Define the output item as custom_item
-        var resultItem = ModAPI.reflect.getClassById("net.minecraft.item.ItemStack").constructors[1](ModAPI.blocks["custom_item"].getRef(), 1);
+        var resultItem = ModAPI.reflect.getClassById("net.minecraft.item.ItemStack").constructors[1](ModAPI.blocks["hack"].getRef(), 1);
 
 
 
@@ -50,7 +50,7 @@
         ModAPI.hooks.methods.nmic_CraftingManager_addRecipe(craftingManager, resultItem, recipe);
     }
 
-    ModAPI.dedicatedServer.appendCode(addCustomItemRecipe);
+    ModAPI.dedicatedServer.appendCode(addHackItemRecipe);
 
-    addCustomItemRecipe();
+    addHackItemRecipe();
 })();
